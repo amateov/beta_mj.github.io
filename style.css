@@ -1,0 +1,794 @@
+/* Importa la tipografia a usar en la pagina */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+/* Define el tamaño y los atributos generales, en este caso, del texto que contiene la pagina */
+html{
+ font-size: 10px;/* Tamaño del texto que contiene la pagina */
+ font-family: 'Montserrat', sans-serif;/* Tipografia que contiene la pagina */
+ scroll-behavior: smooth;/* Esto hace que al clikear las opciones del menu, el movimiento sea suave y no cambie de repente */
+}
+a{
+ text-decoration: none;/* Elimina la linea que trae por defecto el texto que contiene el boton Portafolio */
+}
+.container{
+ min-height: 100vh;/* Ajusta la altura desde abajo hacia arriba de la pagina */
+ width: 100%;/* Ajusta la anchura de la pagina */
+ display: flex;/* Ajusta el contenido que se visualiza al espacio de la pagina */
+ align-items: center;/* Define la posicion de los elementos del contenedor en el eje vertical */
+ justify-content: center;/* Define la posicion de los elementos del contenedor en el eje horizontal */
+}
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+p{
+  font-size: 1.4rem;/* Controla el tamaño de letra */
+  margin-top: 5px;/* Controla el espacio entre el parrafo y el encabezado */
+  line-height: 2.5rem;/* Controla el espacio entre las lineas del parrafo */
+  font-weight: 300;/* Controla en grosor de las letras del parrafo */
+  letter-spacing: .05rem;/* Controla el espacio entre las letras de cada palabra */
+  color: black;
+}
+/* (47:08) Para dar estilos a la cabecera de la seccion Servicios  (1:10) Movido a la seccion comun para cada vez que se use la clase section-title se aplique el mismo formato*/
+.section-title{
+  font-size: 4rem;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 10px;/* Controla el margen de abajo, es decir, el espacio entre el elemento y lo que tiene denajo */
+  text-transform: uppercase;/* Convierte el texto a mayuscula */
+  letter-spacing: .2rem;/* Controla el espacio entre las letras que forman la palabra */
+  text-align: center;/* Esto hace que el texto este alineado en el centro del contenedor */
+}
+/* (49:00) Esto controla el color del span asignado  en el H1 de la clase section-title html*/
+.section-title span{
+  color: rgb(44, 231, 200);
+}
+/* Para definir los atributos del boton principal (Portafolio)  */
+ .cta{
+  display: inline-block;
+  padding: 15px 30px;/* Define el tamaño (alto y ancho) del boton Portafolio */
+  color: rgb(44, 231, 200);/* Define el color del texto del boton Portafolio */
+  background-color: transparent;/* Define el color de fondo del boton Portafolio, en este caso Transparente */
+  border: 1.9px solid rgb(44, 231, 200);/* Define el grosor del borde del boton Portafolio, asi como el color */
+  border-radius: 5px;/* Define la curvatura de las esquinas del boton Portafolio */
+  font-size: 2rem;/* Define el tamaño del texto del boton Portafolio */
+  text-transform: uppercase;/* Convierte a mayuscula en texto del boton Portafolio */
+  letter-spacing: .1rem;/* Define el espacio entre letras del texto del boton Portafolio */
+  margin-top: 30px;/* Define el espacio que divide el texto principal y el boton Portafolio */
+  transition: .3s ease;/* Define el tiempo que tarda en cambiar de color cuando pasa el cursor por encima del boton Portafolio */
+  transition-property: background-color, color;
+ }
+ /* Para definir el comportamiento del efecto hover el pasar el cursor por encima del boton (Portafolio) */
+ .cta:hover{
+  color: purple;/* Color de la letra al pasar el cursor encima del boton */
+  background-color: rgb(44, 231, 200);/* Color de fondo del boton al pasar el cursor por encima */
+  opacity: 0.9;/* Nivel de transparencia del boton al pasar el cursor por encima */
+ }
+ .brand h1{
+   font-size: 3rem;
+   text-transform: uppercase;
+   color: white;
+   letter-spacing: .2rem;
+ }
+ .brand h1 span{
+   color: rgb(44, 231, 200);
+ }
+
+ /* (2:33:53) Inicio   de los estilos para la seccion del header */
+ /* Header */
+ #header{
+   position: fixed;
+   z-index: 1000;
+   left: 0;
+   top: 0;
+   width: 100vw;
+   height: auto;
+ }
+ #header .header{
+   min-height: 8vh;
+   background-color: rgba(31, 30, 30, 0.24);
+   transition: .3s ease background-color;
+ }
+ #header .nav-bar{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   height: 100%;
+   max-width: 1300px;
+   padding: 0 10px;
+ }
+ #header .nav-list ul{
+   list-style: none;
+   position: absolute;
+   background-color: rgb(31, 30, 30);
+   width: 100vw;
+   height: 100vh;
+   left: 100%;
+   top: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   z-index: 1;
+   overflow-x: hidden;
+   transition: .5s left;
+ }
+ #header .nav-list ul.active{
+   left: 0;
+ }
+ #header .nav-list ul a{
+   font-size: 2.5rem;
+   font-weight: 500;
+   letter-spacing: .2rem;
+   text-decoration: none;
+   color: white;
+   text-transform: uppercase;
+   padding: 20px;
+   display: block;
+ }
+ #header .nav-list ul a::after{
+   content: attr(data-after);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(0);
+   color: rgba(240, 248, 255, 0.021);
+   font-size: 8rem;
+   letter-spacing: 50px;
+   z-index: -1;
+   transition: .3s ease letter-spacing;
+   text-align: center;
+ }
+ #header .nav-list ul li:hover a::after{
+  transform: translate(-50%, -50%) scale(1);
+  letter-spacing: initial;
+  text-align: center;
+ }
+ #header .nav-list ul li:hover a{
+   color: rgb(44, 231, 200);
+ }
+ #header .hamburger{
+   height: 60px;
+   width: 60px;
+   display: inline-block;
+   border: 3px solid rgb(44, 231, 200);
+   border-radius: 50%;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 100;
+   cursor: pointer;
+   transform: scale(.8);
+   margin-right: 20px;
+ }
+ #header .hamburger::after{
+   position: absolute;
+   content: '';
+   height: 100%;
+   width: 100%;
+   border-radius: 50%;
+   border: 3px solid rgb(44, 231, 200);
+   animation: hamburger_plus 1s ease infinite;
+ }
+ #header .hamburger .bar{
+   height: 2px;
+   width: 30px;
+   position: relative;
+   background-color: white;
+   z-index: -1;
+ }
+ #header .hamburger .bar::after,
+ #header .hamburger .bar::before{
+   content: '';
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   left: 0;
+   background-color: white;
+   transition: .3s ease;
+   transition-property: top, bottom;
+ }
+ #header .hamburger .bar::after{
+   top: 8px;;
+ }
+ #header .hamburger .bar::before{
+   bottom: 8px;;
+}
+#header .hamburger.active .bar::before{
+  bottom: 0;
+}
+#header .hamburger.active .bar::after{
+  top: 0;
+}
+
+ /* End of Header */
+ 
+
+/* Hero Section */
+#hero{
+ background-image: url(./media/img/hero-bg3.jpg);/* Imagen de fondo principal */
+ background-size: cover;
+ background-position: top center;
+ position: relative;
+ z-index: 1;/* Valor de 1 para que el texto aparezca por delante del elemento display que controla la opacidad */
+}
+/* Elemento que controla la opacidad de la imagen del fondo */
+#hero::after{
+ content: '';/* Sin este en atributo en blanco el elemento no se visualza */
+ position: absolute;
+ left: 0;
+ top: 0;
+ height: 100%;/* 100% para que abarque toda la pantalla */
+ width: 100%;/* 100% para que abarque toda la pantalla */
+ background-color: black;/* Color del elemento */
+ opacity: 0.50;/* Nivel de transparencia del elemento */
+ z-index: -1;/* Valor de -1 para que el elemento aparezca por detras del texto */
+}
+
+/* (32:47) Para alinear el texto principal y el boton a la izquierda */
+#hero .hero{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+  justify-content: flex-start;
+}
+
+/* Para definir los atributos del texto principal */
+#hero h1{
+ display: block;
+ width: fit-content;/* Permite que el texto principal se ajuste al tamaño de la pagina en que se visualiza */
+ font-size: 4rem;/* Tamaño de letra*/
+ position: relative;
+ color: transparent;/* (28:42) Color de letra transparente para que el texto vaya apareciendo segun pasa la animacion*/
+ animation: text_reveal .80s ease forwards;/* (29:30) Aplica el keyframe text_reveal a la animacion haciendo que el texto aparezca en 0.5 segundos */
+ animation-delay: 1s;/* (29:49) Controla el tiempo que tardan las letras en aparecer despues que pasa la animacion */
+}
+#hero h1.name{
+  font-size: 5.9rem;
+}
+
+/* (30:18) Para hacer que el texto vaya apareciendo secuencialmente, en este caso primero el nombre Melky Javier */
+#hero h1:nth-child(1){
+  animation: text_reveal_name .5s ease forwards;
+  animation-delay: 1.40s;/* Controla el tiempo que tarda el nombre en aparecer completamente */
+  /*font-size: 65px; Controla el tamaño del texto, en este caso el nombre (OJO, controla el tamaño, no la anchura) */
+}
+
+/* (30:59) Para hacer que el texto vaya apareciendo secuencialmente, en este caso segundo la palabra wedding */
+#hero h1:nth-child(2){
+  animation-delay: 2.5s;/* Controla el tiempo que tarda el nombre en aparecer completamente */
+}
+/* (30:59) Para hacer que el texto vaya apareciendo secuencialmente, en este caso tercero la palabra photographer */
+#hero h1:nth-child(3){
+  animation-delay: 1.5s;/* Controla el tiempo que tarda el nombre en aparecer completamente */
+}
+
+/* (23:31) Para definir la animacion sobre el texto principal, se añadieron span en los h1 en el html. Para que funcione el atributo position en #hero h1 debe ser relative */
+#hero h1 span{
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;/* (27:48) Para el estado inicial el span debe medir 0 de ancho */
+ animation: text_reveal_box 1s ease;/* (27:03) Aplica el codigo de los keyframes */
+ animation-delay: .5s;/* Controla el tiempo de retraso de la animacion */
+ border-radius: 4px;/* Define la curvatura de las esquinas de la animacion */
+}
+
+/* (31:06) Para hacer que la animacion vaya apareciendo secuencialmente, en este caso primero sobre el nombre Melky Javier */
+#hero h1:nth-child(1) span{
+  animation-delay: .8s;/* Controla el tiempo que tarda la animacion en aparecer completamente */
+  animation-duration: .90s;/* Controla el tiempo que dura la animacion desde que inicia hasta que termina */
+  background-color: rgb(44, 231, 200);/* Define el color de la animacion */
+  opacity: .1;
+  /* background-color: black; */
+}
+/* (31:06) Para hacer que la animacion vaya apareciendo secuencialmente, en este caso segundo sobre la palabra wedding */
+#hero h1:nth-child(2) span{
+  animation-delay: 1.5s;/* Controla el tiempo que tarda la animacion en aparecer completamente */
+  animation-duration: 1.9s;/* Controla el tiempo que dura la animacion desde que inicia hasta que termina */
+  background-color: white;/* Define el color de la animacion */
+  opacity: .95;
+}
+/* (31:06) Para hacer que la animacion vaya apareciendo secuencialmente, en este caso tercero sobre la palabra photogrpapher */
+#hero h1:nth-child(3) span{
+  animation-delay: .8s;/* Controla el tiempo que tarda la animacion en aparecer completamente */
+  animation-duration: .90s;/* Controla el tiempo que dura la animacion desde que inicia hasta que termina */
+  animation-direction: reverse;/* Controla la direccion en que la animacion ira apareciendo, en este caso de derecha a izquierda */
+  background-color: white;/* Define el color de la animacion */
+  opacity: .1;
+}
+
+/*  */
+/* End Hero Section */
+
+/* (44:38) Services Section */
+
+#services .services{
+  flex-direction: column;/* En este atributo, el valor column hace que la seccion principal y las tarjetas queden una denajo de la otra */
+  text-align: center;/* Esto hace que el texto este alineado en el centro de cada tarjeta */
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+/* (49:23) Esto conrola los atributos del parrafo de la seccion de Servicios */
+/* #services .service-top{ 
+  width: 500px;
+  max-margin: 0 auto;
+  text-align: justify;
+}*/
+
+/* (50:50) Para dar estilos a las tarjetas de la seccion Servicios */
+
+#services .service-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;/* Para separar la primera tarjeta de la seccion del encabezado */
+}
+/* (52:02) Controla lo referente al cuadrado de las tarjetas */
+#services .service-item{
+  flex-basis: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;/* Establece el borde del elemento que contiene la tarjetas */
+  background-image: url(./media/img/services.jpg);/* Establece la imagen de fondo del elemento que contiene la tarjeta */
+  background-size: cover;/* Controla la imagen de fodo de las tarjetas */
+  margin: 10px 5%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;/* Para que el borde la las tarjetas sea igual en el overlay y en el fondo */
+}
+/* (54:07) Para controlar el elemento (Overlay) que hace la opacidad de cada tarjeta*/
+#services .service-item::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  opacity: .6;
+  z-index: -1;
+}
+/*  */
+#services .service-bottom .icon{
+  height: 80px;/* Controla la posicion vertical del icono en las tarjetas */
+  width: 80px;/* Controla la posicion horizontal del icono en las tarjetas */
+  margin-bottom: 20px;/* Controla la distancia que divide el icono del siguiente texto debajo */
+}
+#services .service-item h2{
+  font-size: 1.8rem;/* Controla el tamaño de letra del subtitulo en las tarjetas */
+  color: white;/* Controla el color de letra del subtitulo en las tarjetas */
+  margin-bottom: 10px;/* Controla la distancia que divide el texto del parrafo debajo */
+  text-transform: uppercase;/* Convierte el texto del subtitulo a mayusculas */
+}
+#services .service-item p{
+  color: white;/* Controla el color de letra del parrafo en las tarjetas */
+  text-align: left;
+}
+
+/* (51:44) Controla los atributos de las tarjetas de la seccion sevicios */
+/* End Services Section */
+
+/* (1:11) Inicio de los estilos para la seccion de Proyectos */
+/* Projects Section */
+#projects .projects{
+  flex-direction: column;/* Para que tanto el titulo como las tarjetas esten uno debajo del otro */
+  max-width: 1200px;/* Ajusta la anchura del contenedor de izquierda a derecha*/
+  margin: 0 auto;
+  padding: 100px 0;/* Establece el espacio entre el contenedor y la seccion de servicios */
+}
+/*(1:12:40) Establece el espaciado entre el titulo del encabezado y el subtitulo siguiente*/
+#projects .projects-header h1{
+  margin-bottom: 50px;
+}
+/*(1:13:16) Establece el orden de los elementos de las tarjetas de la seccion proyectos */
+#projects .all-projects{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;/* Para que cada elemeto de la seccion este uno debajo del otro */
+}
+#projects .project-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;/* Establece el ancho del contenedor de las tarjetas */
+  margin: 20px auto;
+  overflow: hidden;/* Establece el espaciado entre cada tarjeta */
+  border-radius: 10px;/* Redondea el borde de cada tarjeta */
+}
+#projects .project-info{
+  padding: 30px;
+  flex-basis: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  color: white;
+}
+#projects .project-info h1{
+  font-size: 4rem;
+  font-weight: 500;
+}
+#projects .project-info h2{
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+#projects .project-info p{
+  color: white;
+}
+#projects .project-img{
+  flex-basis: 50%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+#projects .project-info span{
+  color: rgb(44, 231, 200);
+}
+#projects .project-img::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  opacity: .01;
+}
+#projects .project-img img{
+  transition: .3s ease transform;
+}
+#projects .project-item:hover .project-img img{
+  transform: scale(1.1);
+}
+/* End of Projects Section */
+
+/* About Section */
+#about .about{
+  flex-direction: column-reverse;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px;
+}
+#about .col-left{
+  width: 250px;
+  height: 360px;
+}
+#about .col-right{
+  width: 100%;
+}
+#about .col-right h2{
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: .2rem;
+  margin-bottom: 10px;
+}
+#about .col-right p{
+  margin-bottom: 20px;
+  text-align: justify;
+}
+#about .col-right .cta{
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  font-size: 2rem;
+}
+#about .col-left .about-img{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border: 10px solid white;
+}
+#about .col-left .about-img::after{
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 19px;
+  height: 98%;
+  width: 98%;
+  border: 7px solid rgb(44, 231, 200);
+  z-index: -1;
+}
+/* End About Section */
+
+/* (1:43:02) Inicio de los estilos para la seccion Contacto */
+/* Contact Section */
+#contact .contact{
+  flex-direction: column;/* Para que los elementos queden uno debajo del otro */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#contact .contact-items{
+  width: 400px;/* Controla en ancho de cada tarjeta */ 
+}
+#contact .contact-item{
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 18px 0 #0000002c; 
+  transition: .3s ease box-shadow;/* Controla la velocidad del efecto del mouse sobre las tarjetas */
+}
+#contact .contact-item:hover{
+  box-shadow: 0px 0px 5px 0 #0000002c;/* Controla el efecto del mouse sobre la tarjetas */
+}
+#contact .contact-icon{
+  width: 70px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+#contact .contact-info h1{
+   font-size: 2.5rem;
+   font-weight: 500;
+   margin-bottom: 5px;
+}
+#contact .contact-info h2{
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+/* End of Contact Section */
+
+/* (1:56:48) Inicio de los estilos para la seccion del Footer */
+/* Footer */
+#footer{
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+#footer .footer{
+  min-height: 200px;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+#footer h2{
+  color: white;
+  font-weight: 400;
+  font-size: 1.8rem;
+  letter-spacing: .1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+#footer .social-icon{
+  display: flex;
+  margin-bottom: 30px;
+  
+}
+#footer .social-item{
+  height: 50px;
+  width: 50px;
+  margin-bottom: 0 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+  transition: .5s ease;
+}   
+#footer .social-item:hover{
+  box-shadow: 0px 0px 15px 0 rgb(44, 231, 200);
+  border-radius: 60px;
+
+}
+#footer p{
+  color: white;
+  font-size: 1.3rem;
+}
+/* End of Footer */
+
+
+/* (26:00) Efecto de animacion sobre el texto principal. Sin esto los cuadros encima del texto se quedan estaticos  */
+/* Keyframes */
+@keyframes hamburger_plus{
+  0%{
+    opacity: 1;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes text_reveal_box{
+ 50%{
+   width: 100%;
+   left: 0%;
+ }
+ 100%{
+   width: 0;
+   left: 100%;
+ }
+}
+/* Controla el efecto de transicion en el texto principal */
+@keyframes text_reveal{
+ 100%{
+   color: white;
+ }
+}
+/* (34:50) Controla el efecto de transicion solo en el nombre */
+@keyframes text_reveal_name{
+  100%{
+    color: rgb(44, 231, 200);/* Color de letra del nombre */
+    font-weight: 1000;/* Tamaño de letra del nombre */
+  }
+ }
+/* End Keyframes
+
+/* (2:05:18) Inicio de los media queries */
+
+/* (2:06:06) Establece el comportamiento para la viasualizacion en tabletas */
+
+/* Media Query for Tablet */
+
+/* Varia el tamaño del boton portafolio al visualizarse en una tableta */
+@media only screen and (min-width: 768px){
+  .cta{
+    font-size: 2.5rem;
+    padding: 20px 60px;
+  }
+  h1.section-title{
+    font-size: 6rem;
+  }
+  /* Hero */
+  #hero h1{
+    font-size: 7rem;
+  }
+  #hero h1.name{
+    font-size: 10rem;
+
+  }
+  /* End of Hero */
+
+  /* Service */
+  #services .service-bottom .service-item{
+    flex-basis: 45%;
+    margin: 2.5%;/* Permite quel las tarjetas de la seccion servicios se agrupen en dos culumnas al visualizarse en una tableta */
+  }
+  /* Endo of Service */
+
+  /* Projects */
+  #projects .project-item{
+    flex-direction: row;
+  }
+  #projects .project-item:nth-child(even){
+    flex-direction: row-reverse;
+  }
+  #projects .project-item{
+    height: 400px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  #projects .all-projects .project-info{
+    height: 100%;
+  }
+  #projects .all-projects .project-img{
+    height: 100%;
+  }
+
+  /* Endo of Projects */
+
+  /* Abouth */
+  #about .about{
+    flex-direction: row;
+  }
+  #about .col-left{
+    width: 600px;
+    height: 400px;
+    padding-left: 60px;
+  }
+  #about .about .col-left .about-img::after{
+    left: -45px;
+    top: 34px;
+    height: 98%;
+    width: 98%;
+    border: 10px solid rgb(44, 231, 200);
+  }
+  #about .col-right{
+    text-align: left;
+    padding: 30px;
+  }
+  #about .col-right h1{
+    text-align: left;
+  }
+  #about .col-right p{
+    text-align: justify;
+    margin-top: 20px;
+  }
+  /* End of Abouth */
+
+  /* Contact */
+  #contact .contact{
+    flex-direction: column;
+    padding: 100px 0;
+    align-items: center;
+    justify-content: center;
+    min-width: 20vh;
+  }
+  #contact .contact-items{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+  #contact .contact-item{
+    width: 30%;
+    margin: 0;
+    flex-direction: row;
+  }
+  #contact .contact-item .icon{
+    height: 80px;
+    width: 80px;
+  }
+  #contact .contact-item .icon img{
+    object-fit: contain; 
+  }
+  #contact .contact-item .contact-info{
+    width: 100%;
+    text-align: left;
+    padding-left: 20px
+  }
+  /* End of Contact */
+
+  /* Footer */
+  /* End of Footer */
+}
+
+/* End Media Query for Table */
+
+/* Media Query for Desktop */
+@media only screen and (min-width: 1200px) {
+  /* Header */
+  #header .hamburger{
+    display: none;
+  }
+  #header .nav-list ul{
+    position: initial;
+    display: block;
+    height: auto;
+    width: fit-content;
+    background-color: transparent;
+  }
+  #header .nav-list ul li{
+    display: inline-block;
+  }
+  #header .nav-list ul li a{
+    font-size: 1.8rem;
+  }
+  #header .nav-list ul a:after{
+    display: none;
+  }
+  /* End Header */
+
+
+  #services .service-bottom .service-item {
+    flex-basis: 24%;
+    margin: 2.5%;
+  }
+}
+/* End Media Query for Desktop */
